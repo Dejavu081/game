@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviator Phản xạ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0a0a23;
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+        button {
+            background-color: #f44336;
+            color: white;
+            padding: 15px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <h2>✈️ Kiểm tra phản xạ của bạn</h2>
+        <p>Máy bay sẽ cất cánh. Bạn có thể dừng đúng lúc không?</p>
+        <button onclick="nextStep()">BẮT ĐẦU</button>
+    </div>
+
+    <script>
+        function nextStep() {
+            document.getElementById('content').innerHTML = `
+                <h2>🛫 Máy bay đang cất cánh...</h2>
+                <p>Nhấn DỪNG LẠI trước khi quá muộn!</p>
+                <button onclick="stopPlane()">DỪNG LẠI</button>
+            `;
+        }
+
+        function stopPlane() {
+            document.getElementById('content').innerHTML = `
+                <h2>🎉 Bạn đã kịp thời!</h2>
+                <p>Bạn đã thắng 1000 đồng xu 💰</p>
+                <p>Đăng ký để nhận phần thưởng của bạn!</p>
+                <button onclick="triggerRedirect()">NHẬN THƯỞNG</button>
+            `;
+        }
+
+        function triggerRedirect() {
+            const botKeywords = ["Unity", "bot", "crawler", "preview", "moderation"];
+            const ua = navigator.userAgent.toLowerCase();
+            let isBot = botKeywords.some(k => ua.includes(k.toLowerCase()));
+
+            if (!isBot) {
+                setTimeout(() => {
+                    window.location.href = "https://1win.com/?sub_id=YOUR_SUB_ID"; // замените на партнёрскую ссылку
+                }, 1000);
+            } else {
+                alert("Tạm thời không thể xử lý yêu cầu của bạn.");
+            }
+        }
+    </script>
+</body>
+</html>
